@@ -5,26 +5,34 @@ export const FeaturedBooks = () => {
     {
       title: "The Midnight Library",
       author: "Matt Haig",
-      price: 24.99,
+      description: "A thought-provoking novel about life's infinite possibilities",
       imageUrl: "https://images.unsplash.com/photo-1544947950-fa07a98d237f",
+      downloadUrl: "/downloads/midnight-library.pdf",
+      category: "BBA",
     },
     {
       title: "The Silent Patient",
       author: "Alex Michaelides",
-      price: 19.99,
+      description: "A psychological thriller that will keep you guessing",
       imageUrl: "https://images.unsplash.com/photo-1512820790803-83ca734da794",
+      downloadUrl: "/downloads/silent-patient.pdf",
+      category: "B.Com",
     },
     {
       title: "Educated",
       author: "Tara Westover",
-      price: 22.99,
+      description: "A memoir about the transformative power of education",
       imageUrl: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e",
+      downloadUrl: "/downloads/educated.pdf",
+      category: "BCA",
     },
     {
       title: "Where the Crawdads Sing",
       author: "Delia Owens",
-      price: 21.99,
+      description: "A beautiful story of resilience and survival",
       imageUrl: "https://images.unsplash.com/photo-1514894780887-121968d00567",
+      downloadUrl: "/downloads/crawdads.pdf",
+      category: "BA",
     },
   ];
 

@@ -12,7 +12,7 @@ import {
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn] = useState(false); // This will be connected to auth later
+  const [isLoggedIn] = useState(false);
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -33,10 +33,10 @@ export const Navbar = () => {
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
             </div>
             <Link
-              to="/categories"
+              to="/books"
               className="text-gray-600 hover:text-primary transition-colors"
             >
-              Categories
+              Books
             </Link>
             <Link
               to="/people"
@@ -66,12 +66,6 @@ export const Navbar = () => {
                     <DropdownMenuItem>Logout</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <Button variant="ghost" className="relative">
-                  <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-secondary text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    0
-                  </span>
-                </Button>
               </>
             ) : (
               <Button variant="default" className="flex items-center gap-2">
@@ -97,10 +91,10 @@ export const Navbar = () => {
             <div className="flex flex-col space-y-4">
               <Input type="search" placeholder="Search books..." />
               <Link
-                to="/categories"
+                to="/books"
                 className="text-gray-600 hover:text-primary px-2"
               >
-                Categories
+                Books
               </Link>
               <Link
                 to="/people"
@@ -116,10 +110,6 @@ export const Navbar = () => {
                   >
                     Profile
                   </Link>
-                  <Button variant="ghost" className="justify-start">
-                    <ShoppingCart className="h-5 w-5 mr-2" />
-                    Cart (0)
-                  </Button>
                 </>
               ) : (
                 <Button variant="default" className="flex items-center gap-2">
