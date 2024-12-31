@@ -7,23 +7,23 @@ export const Hero = () => {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
             <h1 className="font-serif text-4xl md:text-6xl font-bold leading-tight">
-              Discover Your Next
+              Books Meet
               <br />
-              Favorite Book
+              Connections
             </h1>
             <p className="text-lg md:text-xl text-gray-200">
-              Explore our vast collection of books across all genres. From
-              bestsellers to rare finds, we have something for every reader.
+              Join our community of learners. Download study materials and connect
+              with fellow students. Share knowledge and grow together.
             </p>
             <div className="space-x-4">
               <Button
                 size="lg"
                 className="bg-secondary text-primary hover:bg-secondary/90"
               >
-                Browse Books
+                Sign Up Now
               </Button>
               <Button size="lg" variant="outline" className="text-white">
-                View Categories
+                Browse Books
               </Button>
             </div>
           </div>
