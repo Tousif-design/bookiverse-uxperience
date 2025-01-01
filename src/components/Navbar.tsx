@@ -1,4 +1,4 @@
-import { ShoppingCart, Search, Menu, User, LogIn } from "lucide-react";
+import { ShoppingCart, Search, Menu, User, LogIn, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -18,9 +18,15 @@ export const Navbar = () => {
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="font-serif text-2xl font-bold text-primary">
-            BookStore
-          </Link>
+          <div className="flex items-center gap-8">
+            <Link to="/" className="font-serif text-2xl font-bold text-primary">
+              BookStore
+            </Link>
+            <Link to="/" className="hidden md:flex items-center gap-2 text-gray-600 hover:text-primary transition-colors">
+              <Home className="h-4 w-4" />
+              Home
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -92,6 +98,13 @@ export const Navbar = () => {
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-4">
               <Input type="search" placeholder="Search books..." />
+              <Link
+                to="/"
+                className="text-gray-600 hover:text-primary px-2 flex items-center gap-2"
+              >
+                <Home className="h-4 w-4" />
+                Home
+              </Link>
               <Link
                 to="/books"
                 className="text-gray-600 hover:text-primary px-2"
