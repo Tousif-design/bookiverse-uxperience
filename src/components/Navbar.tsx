@@ -1,4 +1,4 @@
-import { ShoppingCart, Search, Menu, User, LogIn, Home } from "lucide-react";
+import { ShoppingCart, Search, Menu, User, LogIn, Home, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -9,10 +9,22 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn] = useState(false);
+  const [userField] = useState("bcom"); // This would come from auth context in real app
+
+  const getAvatarUrl = (field: string) => {
+    const avatarMap = {
+      bcom: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
+      bca: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1",
+      bba: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
+      ba: "https://images.unsplash.com/photo-1501286353178-1ec881214838"
+    };
+    return avatarMap[field as keyof typeof avatarMap] || avatarMap.bcom;
+  };
 
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
@@ -51,28 +63,31 @@ export const Navbar = () => {
               People
             </Link>
             {isLoggedIn ? (
-              <>
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="icon">
-                      <User className="h-5 w-5" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    <DropdownMenuItem>
-                      <Link to="/profile" className="flex items-center">
-                        Profile
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link to="/settings" className="flex items-center">
-                        Settings
-                      </Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>Logout</DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              </>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="relative">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={getAvatarUrl(userField)} />
+                      <AvatarFallback>
+                        <UserCircle className="h-6 w-6" />
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem>
+                    <Link to="/profile" className="flex items-center w-full">
+                      Profile Settings
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link to="/settings" className="flex items-center w-full">
+                      Account Settings
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <Link to="/login">
                 <Button variant="default" className="flex items-center gap-2">
@@ -118,14 +133,18 @@ export const Navbar = () => {
                 People
               </Link>
               {isLoggedIn ? (
-                <>
-                  <Link
-                    to="/profile"
-                    className="text-gray-600 hover:text-primary px-2"
-                  >
-                    Profile
-                  </Link>
-                </>
+                <Link
+                  to="/profile"
+                  className="text-gray-600 hover:text-primary px-2 flex items-center gap-2"
+                >
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={getAvatarUrl(userField)} />
+                    <AvatarFallback>
+                      <UserCircle className="h-6 w-6" />
+                    </AvatarFallback>
+                  </Avatar>
+                  Profile
+                </Link>
               ) : (
                 <Link to="/login">
                   <Button variant="default" className="flex items-center gap-2">
