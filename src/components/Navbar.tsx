@@ -68,10 +68,12 @@ export const Navbar = () => {
                 </DropdownMenu>
               </>
             ) : (
-              <Button variant="default" className="flex items-center gap-2">
-                <LogIn className="h-4 w-4" />
-                Sign In
-              </Button>
+              <Link to="/login">
+                <Button variant="default" className="flex items-center gap-2">
+                  <LogIn className="h-4 w-4" />
+                  Sign In
+                </Button>
+              </Link>
             )}
           </div>
 
@@ -112,10 +114,12 @@ export const Navbar = () => {
                   </Link>
                 </>
               ) : (
-                <Button variant="default" className="flex items-center gap-2">
-                  <LogIn className="h-4 w-4" />
-                  Sign In
-                </Button>
+                <Link to="/login">
+                  <Button variant="default" className="flex items-center gap-2">
+                    <LogIn className="h-4 w-4" />
+                    Sign In
+                  </Button>
+                </Link>
               )}
             </div>
           </div>
