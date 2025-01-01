@@ -21,7 +21,7 @@ export const Navbar = () => {
       bcom: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952",
       bca: "https://images.unsplash.com/photo-1535268647677-300dbf3d78d1",
       bba: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9",
-      ba: "https://images.unsplash.com/photo-1501286353178-1ec881214838"
+      ba: "https://images.unsplash.com/photo-1501286353178-1ec871214838"
     };
     return avatarMap[field as keyof typeof avatarMap] || avatarMap.bcom;
   };
@@ -89,12 +89,24 @@ export const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Link to="/login">
-                <Button variant="default" className="flex items-center gap-2">
-                  <LogIn className="h-4 w-4" />
-                  Sign In
-                </Button>
-              </Link>
+              <div className="flex items-center gap-4">
+                <Link to="/profile">
+                  <Button variant="ghost" size="icon" className="relative">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={getAvatarUrl("bcom")} />
+                      <AvatarFallback>
+                        <UserCircle className="h-6 w-6" />
+                      </AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </Link>
+                <Link to="/login">
+                  <Button variant="default" className="flex items-center gap-2">
+                    <LogIn className="h-4 w-4" />
+                    Sign In
+                  </Button>
+                </Link>
+              </div>
             )}
           </div>
 
@@ -146,12 +158,20 @@ export const Navbar = () => {
                   Profile
                 </Link>
               ) : (
-                <Link to="/login">
-                  <Button variant="default" className="flex items-center gap-2">
-                    <LogIn className="h-4 w-4" />
-                    Sign In
-                  </Button>
-                </Link>
+                <div className="space-y-2">
+                  <Link to="/profile" className="block">
+                    <Button variant="ghost" className="w-full flex items-center gap-2">
+                      <UserCircle className="h-4 w-4" />
+                      Profile
+                    </Button>
+                  </Link>
+                  <Link to="/login">
+                    <Button variant="default" className="w-full flex items-center gap-2">
+                      <LogIn className="h-4 w-4" />
+                      Sign In
+                    </Button>
+                  </Link>
+                </div>
               )}
             </div>
           </div>
