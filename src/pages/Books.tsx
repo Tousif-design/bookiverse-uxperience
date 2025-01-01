@@ -105,7 +105,7 @@ const Books = () => {
         </div>
       </div>
 
-      <PeopleSection />
+      <PeopleSection selectedField="all" />
     </div>
   );
 };

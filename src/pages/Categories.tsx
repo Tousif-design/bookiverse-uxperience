@@ -149,7 +149,7 @@ const Categories = () => {
         </div>
       </div>
 
-      <PeopleSection />
+      <PeopleSection selectedField="all" />
     </div>
   );
 };
